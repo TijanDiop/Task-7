@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>UsersTable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {background-color: #f5f5f5;}
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 8px;
+        }
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<h2>All Users</h2>
+<br>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Operations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${allUsers}">
+        <td th:text="${user.getFirstName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${user.getId()})}">
+                <input type="button" value="Update">
+            </a>
+            <a th:href="@{/delete/{id}(id=${user.getId()})}">
+                <input type="button" value="Delete">
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{/new}">
+    <input type="button" value="Add">
+</a>
+</body>
+</html>
