@@ -1,7 +1,7 @@
-package application_crud.service;
+package application.service;
 
-import application_crud.dao.UserDao;
-import application_crud.model.User;
+import application.dao.UserDao;
+import application.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,14 +22,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void saveOrUpdate(User user) {
-        userDao.saveOrUpdate(user);
+    public void saveUser(User user) {
+        userDao.saveUser(user);
+    }
+
+    @Override
+    @Transactional
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 
     @Override
     @Transactional
     public User getUserById(Long id) {
-       return userDao.getUserById(id);
+        return userDao.getUserById(id);
     }
 
     @Override

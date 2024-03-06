@@ -1,7 +1,7 @@
-package application_crud.controller;
+package application.controller;
 
-import application_crud.model.User;
-import application_crud.service.UserService;
+import application.model.User;
+import application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +29,7 @@ public class UserController {
 
     @PostMapping("/add")
     public String addNewUser(@ModelAttribute("user") User user) {
-        userService.saveOrUpdate(user);
+        userService.saveUser(user);
         return "redirect:/";
     }
 
@@ -37,7 +37,13 @@ public class UserController {
     public String updateUser(@PathVariable("id") Long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "user-info";
+        return "edit-user";
+    }
+
+    @PostMapping("/update")
+    public String savedUpate(@ModelAttribute("user") User user) {
+        userService.updateUser(user);
+        return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")

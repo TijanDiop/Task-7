@@ -1,4 +1,4 @@
-package application_crud.config;
+package application.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,7 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScan(value = "application_crud")
+@ComponentScan("application")
 public class JPAConfig {
 
     @Autowired

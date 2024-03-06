@@ -1,12 +1,8 @@
-package application_crud.dao;
+package application.dao;
 
-import application_crud.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import application.model.User;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
@@ -25,7 +21,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void saveOrUpdate(User user) {
+    public void saveUser(User user) {
+        entityManager.persist(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
         entityManager.merge(user);
     }
 

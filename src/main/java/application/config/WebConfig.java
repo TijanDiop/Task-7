@@ -1,4 +1,4 @@
-package application_crud.config;
+package application.config;
 
 import org.apache.taglibs.standard.lang.jstl.JSTLVariableResolver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("application_crud")
+@ComponentScan("application")
 public class WebConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;

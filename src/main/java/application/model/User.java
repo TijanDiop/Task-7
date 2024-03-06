@@ -1,4 +1,4 @@
-package application_crud.model;
+package application.model;
 
 import javax.persistence.*;
 
